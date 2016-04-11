@@ -1,0 +1,3 @@
+appControl_users_list:
+    path:     /users/list
+    defaults: { _controller: AppControlBundle:Users:list }
