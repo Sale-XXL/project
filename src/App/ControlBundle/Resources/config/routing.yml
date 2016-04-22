@@ -1,3 +1,8 @@
+appControl_security_login:
+    path:     /login
+    defaults: { _controller: AppControlBundle:Security:login }
+
+
 appControl_users_list:
     path:     /users/list
     defaults: { _controller: AppControlBundle:Users:list }

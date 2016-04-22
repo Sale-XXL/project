@@ -14,7 +14,7 @@ namespace Library\UsersBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Library\UsersBundle\LibraryUsersBundle
+ * Library\UsersBundle\Entity\Users
  *
  * Class Users
  * @package Library\UsersBundle\Entity
@@ -40,6 +40,8 @@ class Users
     protected $email;
 
     protected $login;
+
+    protected $password;
 
     protected $role;
 

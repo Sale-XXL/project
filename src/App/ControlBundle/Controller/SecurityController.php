@@ -14,6 +14,9 @@ namespace App\ControlBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+use Library\UsersBundle\Entity\Users;
+use App\ControlBundle\Form\Type\Login as LoginForm;
+
 /**
  * App\ControlBundle\Controller\SecurityController
  *
@@ -30,7 +33,14 @@ class SecurityController extends Controller
      */
     public function loginAction()
     {
-        return array();
+
+        $user = new Users();
+
+        $form = $this->createForm(LoginForm::class);
+
+        return array(
+            'form' => $form->createView(),
+        );
     }
 
 }
