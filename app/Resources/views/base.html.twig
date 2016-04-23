@@ -13,7 +13,9 @@
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>
+        {% endblock %}
 
         {% block javascripts %}{% endblock %}
 

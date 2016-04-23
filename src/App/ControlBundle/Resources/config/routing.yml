@@ -1,8 +1,19 @@
-appControl_security_login:
+control_security_login:
     path:     /login
     defaults: { _controller: AppControlBundle:Security:login }
 
+control_default:
+    path:     /
+    defaults: { _controller: AppControlBundle:Default:index }
 
-appControl_users_list:
-    path:     /users/list
+control_companies_list:
+    path:     /companies/list/
+    defaults: { _controller: AppControlBundle:Companies:list }
+
+control_shops_list:
+    path:     /shops/list/
+    defaults: { _controller: AppControlBundle:Shops:list }
+
+control_users_list:
+    path:     /users/list/
     defaults: { _controller: AppControlBundle:Users:list }

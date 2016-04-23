@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+header {
+    background: white;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgrey;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.mainMenu {
+    margin: 20px;
+}
+
+.content {
+    /*background: #f6f6f6;*/
+}

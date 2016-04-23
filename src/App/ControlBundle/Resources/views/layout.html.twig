@@ -1,7 +1,25 @@
 {% extends '::base.html.twig' %}
 
-{% block body %}
-    <h1>Blog Application</h1>
 
-    {% block content %}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/control/main.css') }}"/>
+{% endblock %}
+
+
+{% block body %}
+
+    {% block header %}
+        {% include 'AppControlBundle::header.html.twig' %}
+    {% endblock %}
+
+
+
+    <div class="content">
+
+        <h1>Admin</h1>
+
+        {% block content %}{% endblock %}
+    </div>
+
 {% endblock %}
