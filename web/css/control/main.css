@@ -7,8 +7,34 @@ header {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
 }
 
-.mainMenu {
+.mainMenu_container {
     margin: 20px;
+}
+
+ul.mainMenu {
+    color: #B7C0CA;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+ul.mainMenu li {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+ul.mainMenu a {
+    color: #B7C0CA;
+    text-decoration: none;
+}
+
+ul.mainMenu a:hover {
+    color: orange;
+}
+
+ul.mainMenu a.select {
+    color: #e69324;
+    padding-bottom: 18px;
+    border-bottom: solid 3px #e69324;
 }
 
 .content {

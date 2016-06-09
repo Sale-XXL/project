@@ -1,4 +1,4 @@
 services:
-#    app_control.example:
-#        class: App\ControlBundle\Example
+    control.menu_main:
+        class: App\ControlBundle\Service\MenuMain
 #        arguments: ["@service_id", "plain_value", %parameter%]

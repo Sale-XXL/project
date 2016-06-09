@@ -16,6 +16,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
 
             // my bundles
             new App\ControlBundle\AppControlBundle(),
@@ -23,6 +24,7 @@ class AppKernel extends Kernel
             new App\SystemBundle\AppSystemBundle(),
             new Library\CompanyBundle\LibraryCompanyBundle(),
             new Library\UsersBundle\LibraryUsersBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

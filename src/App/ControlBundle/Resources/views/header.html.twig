@@ -1,7 +1,5 @@
 <header>
-
     <div>
-        {% include 'AppControlBundle::menuMain.html.twig' %}
+        {{ render(controller('AppControlBundle:Menu:main', {'nameController': app.request.get('_controller')})) }}
     </div>
-
 </header>

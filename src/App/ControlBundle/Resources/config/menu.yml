@@ -1,0 +1,17 @@
+main_menu:
+    home:
+      title: control.menu.main.home
+      route: control_default
+      nameController: Default
+    companies:
+      title: control.menu.main.companies
+      route: control_companies_list
+      nameController: Companies
+    shops:
+      title: control.menu.main.shops
+      route: control_shops_list
+      nameController: Shops
+    users:
+      title: control.menu.main.users
+      route: control_users_list
+      nameController: Users

@@ -1,0 +1,9 @@
+<div class="mainMenu_container">
+    <ul class="mainMenu">
+        {% for itemMenu in mainMenu %}
+            <li>
+                <a href="{{ path(itemMenu.route) }}" {% if currentControllerName == itemMenu.nameController %}class="select"{% endif %}>{{ itemMenu.title |trans }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

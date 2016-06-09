@@ -12,7 +12,6 @@ namespace Library\UsersBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-
 /**
  * Library\UsersBundle\LibraryUsersBundle
  *

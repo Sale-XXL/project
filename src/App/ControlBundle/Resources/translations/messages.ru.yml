@@ -1,0 +1,7 @@
+control:
+    menu:
+        main:
+            home: Главная
+            companies: Компании
+            shops: Магазины
+            users: Пользователи
