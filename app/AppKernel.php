@@ -15,6 +15,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
 
@@ -22,6 +23,7 @@ class AppKernel extends Kernel
             new App\ControlBundle\AppControlBundle(),
             new App\PublicBundle\AppPublicBundle(),
             new App\SystemBundle\AppSystemBundle(),
+            new Library\BaseBundle\LibraryBaseBundle(),
             new Library\CompanyBundle\LibraryCompanyBundle(),
             new Library\UsersBundle\LibraryUsersBundle(),
 

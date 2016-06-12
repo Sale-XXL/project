@@ -22,4 +22,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Users extends EntityRepository
 {
 
+    const ROLE__SUPER_ADMIN     = 'ROLE__SUPER_ADMIN';
+    const ROLE__ADMIN           = 'ROLE__ADMIN';
+    const ROLE__COMPANY_ADMIN   = 'ROLE__COMPANY_ADMIN';
+
 }

@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: doctrine_extensions.yml }
     - { resource: "@AppSystemBundle/Resources/config/services.yml" }
     - { resource: "@AppControlBundle/Resources/config/services.yml" }
     - { resource: "@AppPublicBundle/Resources/config/services.yml" }
@@ -68,6 +69,13 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        mappings:
+            translatable:
+                type: annotation
+                alias: Gedmo
+                prefix: Gedmo\Translatable\Entity
+                # make sure vendor library location is correct
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
 
 # Doctrine Migrations Configuration
 doctrine_migrations:
