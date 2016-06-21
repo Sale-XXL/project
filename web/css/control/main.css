@@ -7,14 +7,31 @@ header {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
 }
 
+.content {
+    /*background: #f6f6f6;*/
+}
+
+.logo-container {
+    float: left;
+    margin: 8px 20px;
+}
+
+
+
+/*
+=======================================
+======= MAIN MENU =====================
+*/
+
 .mainMenu_container {
-    margin: 20px;
+    margin: 20px 0;
 }
 
 ul.mainMenu {
     color: #B7C0CA;
     font-family: sans-serif;
     font-size: 18px;
+    padding-left: 0;
 }
 
 ul.mainMenu li {
@@ -37,6 +54,89 @@ ul.mainMenu a.select {
     border-bottom: solid 3px #e69324;
 }
 
-.content {
-    /*background: #f6f6f6;*/
+/*
+====  end MAIN MENU ======================
+==========================================
+*/
+
+
+
+
+.error {
+    color: red;
+}
+
+.card-inner {
+    background-color: white;
+    padding: 12px;
+    border: solid 1px #E0E0E0;
+    border-radius: 5px;
+}
+
+a.button-logout {
+    font-size: 14px;
+    border-radius: 6px;
+    color: #777;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    box-shadow: inset 1px 7px 7px #f5f5f5;
+    border: solid 1px #b7c0ca;
+    padding: 7px 10px 8px;
+    display: inline-block;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+a.button-logout:hover {
+    box-shadow: inset 1px 7px 7px #F5F5F5, 0 0 5px #bfd5ff;
+    background-color: #e7e7e7;
+}
+
+a.button-logout:active {
+    box-shadow: inset 1px 7px 7px #d7d7d7;
+}
+
+
+
+/*
+==============================================
+===== FORMS ==================================
+*/
+
+form button {
+    height: 38px;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #FFAE34;
+    box-shadow: inset 2px 7px 7px #F3CD96;
+    border: solid 1px #D47E11;
+    padding: 0 12px;
+}
+
+form button:hover {
+    background-color: #f2a534;
+    box-shadow: inset 2px 5px 5px #f3c24b, 0 0 5px #ffac1d;
+}
+
+form button:active {
+    background-color: #f2a534;
+    box-shadow: inset 3px 5px 7px #e49c2f;
+}
+
+
+
+a.button-link {
+    font-size: 14px;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #FFAE34;
+    box-shadow: inset 2px 7px 7px #F3CD96;
+    border: solid 1px #D47E11;
+    padding: 7px 10px 8px;
+    display: inline-block;
+    margin-top: 5px;
+    text-decoration: none;
 }

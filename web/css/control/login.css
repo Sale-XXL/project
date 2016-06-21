@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.login-container {
+    text-align: center;
+    width: 400px;
+    margin: 65px auto;
+}
+
+.login-container .form-tile {
+    font-size: 21px;
+    margin-top: 10px;
+    margin-bottom: 22px;
+    color: #526880;
+}
+
+.login-container .error {
+    font-size: 13px;
+    margin: 12px 0;
+}
+
+form.control-login input {
+    width: 280px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    box-shadow: inset 2px 2px 4px #f1f1f1;
+}
+
+form.control-login button {
+    width: 306px;
+}
+
+form.control-login .input-container {
+    margin-bottom: 18px;
+}
+
+form.control-login .button-container {
+    margin-bottom: 20px;
+}

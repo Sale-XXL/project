@@ -1,11 +1,36 @@
 {% extends 'AppControlBundle::layout.html.twig' %}
 
 
-{% block content %}
-    Login
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/control/login.css') }}"/>
+{% endblock %}
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
+
+{% block content %}
+
+    <div class="login-container card-inner">
+        <div class="form-tile">
+            {{ 'control.forms.login.title' |trans }}
+        </div>
+
+        {% if error %}
+            <div class="error">{{ error.messageKey |trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <form class="control-login" action="{{ path('control_login') }}" method="post">
+
+            <div class="input-container">
+                <input type="text" id="username" name="_username" placeholder="{{ 'control.forms.login.loginOrEmail' |trans }}" value="{{ last_username }}" />
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" name="_password" placeholder="{{ 'control.forms.login.password' |trans }}" />
+            </div>
+            <div class="button-container">
+                <button type="submit">{{ 'control.forms.login.butLogin' |trans }}</button>
+            </div>
+
+        </form>
+    </div>
 
 {% endblock %}

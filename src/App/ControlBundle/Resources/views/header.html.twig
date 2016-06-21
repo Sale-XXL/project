@@ -1,5 +1,23 @@
-<header>
-    <div>
-        {{ render(controller('AppControlBundle:Menu:main', {'nameController': app.request.get('_controller')})) }}
+<header style="height: 136px;">
+    <div style="padding: 0 20px;">
+        <div class="logo-container">
+            <a href="{{ url('control_default') }}"><img src="{{ asset('images/logo_01_100.png') }}" alt="Sale XXL"></a>
+        </div>
+
+        {% if app.user %}
+            <div style="margin-left: 160px;">
+                <div style="height: 74px;">
+                    <div style="padding-left: 24px; padding-top: 16px;">
+                        <div style="float: right; text-align: right;">
+                            {% if app.user %}<span style="color: #88A4C7; font-weight: bold; vertical-align: text-bottom;">{{ app.user.username }}</span>{% endif %}
+                            <img src="{{ asset('images/icon_user_16.png') }}" style="padding-left: 5px;"><br />
+                            <a href="{{ path('control_logout') }}" class="button-logout">{{ 'control.menu.logout' |trans }}</a>
+                        </div>
+                    </div>
+                </div>
+                {{ render(controller('AppControlBundle:Menu:main', {'nameController': app.request.get('_controller')})) }}
+            </div>
+        {% endif %}
+
     </div>
 </header>

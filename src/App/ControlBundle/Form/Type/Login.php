@@ -37,7 +37,7 @@ class Login extends AbstractType
             ->add('login', TextType::class)
             ->add('password', PasswordType::class)
             ->add('save', SubmitType::class, array(
-                'label' => 'Create Task'
+                'label' => 'control.forms.login.butLogin'
             ))
         ;
     }

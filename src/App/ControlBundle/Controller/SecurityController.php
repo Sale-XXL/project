@@ -13,6 +13,7 @@ namespace App\ControlBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
 
 use Library\UsersBundle\Entity\Users;
 use App\ControlBundle\Form\Type\Login as LoginForm;
@@ -31,15 +32,23 @@ class SecurityController extends Controller
      *
      * @return array
      */
-    public function loginAction()
+    public function loginAction(Request $request)
     {
+        if ( $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY') ) {
+            return $this->redirectToRoute('control_default');
+        }
 
-        $user = new Users();
+        $authenticationUtils = $this->get('security.authentication_utils');
 
-        $form = $this->createForm(LoginForm::class);
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
 
         return array(
-            'form' => $form->createView(),
+            'last_username' => $lastUsername,
+            'error'         => $error,
         );
     }
 

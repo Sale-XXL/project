@@ -1,6 +1,9 @@
-control_security_login:
+control_login:
     path:     /login
     defaults: { _controller: AppControlBundle:Security:login }
+
+control_logout:
+    path: /logout
 
 control_default:
     path:     /

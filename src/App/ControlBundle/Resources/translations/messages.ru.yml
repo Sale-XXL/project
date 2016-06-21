@@ -1,7 +1,17 @@
 control:
+
     menu:
         main:
             home: Главная
             companies: Компании
             shops: Магазины
             users: Пользователи
+        logout: Выход
+
+    forms:
+        login:
+            title: Вход в систему
+            loginOrEmail: Логин или Email
+            password: Пароль
+            butLogin: Войти
+

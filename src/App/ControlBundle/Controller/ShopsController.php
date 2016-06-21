@@ -13,12 +13,17 @@ namespace App\ControlBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * App\ControlBundle\Controller\ShopsController
  *
  * Class ShopsController
  * @package App\ControlBundle\Controller
+ *
+ *
+ * @Security("has_role('ROLE__SUPER_ADMIN')")
+ *
  */
 class ShopsController extends Controller
 {
