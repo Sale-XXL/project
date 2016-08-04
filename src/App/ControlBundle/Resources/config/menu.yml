@@ -15,3 +15,28 @@ main_menu:
       title: control.menu.main.users
       route: control_users_list
       nameController: Users
+
+# Left Menu
+left_menu:
+    Companies:
+        list:
+            title: control.menu.left.companies.list
+            route: control_companies_list
+            nameController: Companies
+            nameAction: list
+        add:
+            title: control.menu.left.companies.add
+            route: control_company_add
+            nameController: Companies
+            nameAction: add
+    Users:
+        list:
+            title: control.menu.left.users.list
+            route: control_users_list
+            nameController: Companies
+            nameAction: list
+        add:
+            title: control.menu.left.users.add
+            route: control_user_add
+            nameController: Companies
+            nameAction: add

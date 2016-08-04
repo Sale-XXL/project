@@ -13,6 +13,10 @@ control_companies_list:
     path:     /companies/list/
     defaults: { _controller: AppControlBundle:Companies:list }
 
+control_company_add:
+    path:     /company/add/
+    defaults: { _controller: AppControlBundle:Companies:add }
+
 control_shops_list:
     path:     /shops/list/
     defaults: { _controller: AppControlBundle:Shops:list }
@@ -20,3 +24,7 @@ control_shops_list:
 control_users_list:
     path:     /users/list/
     defaults: { _controller: AppControlBundle:Users:list }
+
+control_user_add:
+    path:     /user/add/
+    defaults: { _controller: AppControlBundle:Users:add }

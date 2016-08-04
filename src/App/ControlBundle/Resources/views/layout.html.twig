@@ -16,7 +16,19 @@
 
 
     <div class="content">
-        {% block content %}{% endblock %}
+        <div>
+
+            <div class="left-menu" style="float: left;">
+
+                {{ render(controller('AppControlBundle:Menu:left', {'nameController': app.request.get('_controller')})) }}
+
+            </div>
+            <div class="content-card card-inner">
+                {% block content %}{% endblock %}
+            </div>
+
+        </div>
+
     </div>
 
 {% endblock %}

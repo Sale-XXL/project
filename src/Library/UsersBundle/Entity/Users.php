@@ -135,6 +135,14 @@ class Users implements UserInterface
     }
 
     /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @return string
      */
     public function getUsername()
@@ -217,6 +225,19 @@ class Users implements UserInterface
     public function getRoles()
     {
         return ($this->roles) ? (array)unserialize($this->roles) : array();
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getRolesList()
+    {
+        $list = null;
+        if ( $this->getRoles() ) {
+            $list = implode( ', ', $this->getRoles() );
+        }
+
+        return $list;
     }
 
     /**

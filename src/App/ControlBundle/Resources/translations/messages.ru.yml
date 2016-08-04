@@ -6,6 +6,14 @@ control:
             companies: Компании
             shops: Магазины
             users: Пользователи
+        left:
+            companies:
+                list: Cписок компаний
+                add: Добавить компанию
+            users:
+                list: Cписок пользователей
+                add: Добавить
+
         logout: Выход
 
     forms:

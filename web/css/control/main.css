@@ -61,6 +61,12 @@ ul.mainMenu a.select {
 
 
 
+.left-menu {
+    margin-left: 12px;
+    font-size: 13px;
+}
+
+
 
 .error {
     color: red;
@@ -96,13 +102,18 @@ a.button-logout:active {
     box-shadow: inset 1px 7px 7px #d7d7d7;
 }
 
+.content-card {
+    margin: 20px 12px 20px 200px;
+}
+
+
+
 
 
 /*
 ==============================================
 ===== FORMS ==================================
 */
-
 form button {
     height: 38px;
     font-size: 16px;
@@ -139,4 +150,19 @@ a.button-link {
     display: inline-block;
     margin-top: 5px;
     text-decoration: none;
+}
+/*
+====  end FORMS ==========================
+==========================================
+*/
+
+
+table th {
+    background-color: #C7E0C7;
+    text-align: center;
+    padding: 4px;
+}
+
+table td {
+
 }

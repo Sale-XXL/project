@@ -47,4 +47,58 @@ class MenuController extends Controller
         );
     }
 
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function leftAction($nameController)
+    {
+        $leftMenu = $this->getConfigs('left_menu');
+        $controllerName = $this->getControllerName($nameController);
+
+        return array(
+            'leftMenu' => isset( $leftMenu[$controllerName] ) ? $leftMenu[$controllerName] : null,
+            'currentActionName' => $this->getActionName($nameController),
+        );
+    }
+
+    /**
+     * @param string $name
+     * @return array
+     */
+    protected function getConfigs($name)
+    {
+        $file = __DIR__.'/../Resources/config/menu.yml';
+        $menu = Yaml::parse(file_get_contents($file));
+
+        return $menu[$name];
+    }
+
+    /**
+     * @param string $name
+     * @return string
+     */
+    protected function getControllerName($name)
+    {
+        $pathController = explode('::', $name);
+        $arrPath = explode("\\", $pathController[0]);
+        $controllerName = array_pop($arrPath);
+        $controllerName = str_replace('Controller', '', $controllerName);
+
+        return $controllerName;
+    }
+
+    /**
+     * @param string $name
+     * @return string
+     */
+    protected function getActionName($name)
+    {
+        $actionName = explode('::', $name);
+        $actionName = str_replace('Action', '', $actionName[1]);
+
+        return $actionName;
+    }
+
 }

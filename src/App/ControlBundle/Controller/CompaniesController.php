@@ -29,11 +29,21 @@ class CompaniesController extends Controller
 {
 
     /**
-     * @return array
-     *
      * @Template()
+     *
+     * @return array
      */
     public function listAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function addAction()
     {
         return array();
     }

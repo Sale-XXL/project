@@ -35,6 +35,23 @@ class UsersController extends Controller
      */
     public function listAction()
     {
+        /** @var \Doctrine\ORM\EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+        $usersRepository = $em->getRepository('LibraryUsersBundle:Users');
+        $users = $usersRepository->findAll();
+
+        return array(
+            'users' => $users
+        );
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function addAction()
+    {
         return array();
     }
 
