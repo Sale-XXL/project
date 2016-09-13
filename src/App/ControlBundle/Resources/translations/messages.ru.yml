@@ -22,4 +22,20 @@ control:
             loginOrEmail: Логин или Email
             password: Пароль
             butLogin: Войти
+        label:
+            username: Логин
+            password: Пароль
+            repeatPassword: Подтвердите пароль
+            firstName:  Имя
+            lastName: Фамилия
+        button:
+            add: Добавить
 
+    users:
+        label:
+            addNewUser: Добавление нового пользователя
+        roles:
+            name:
+                super_admin: Супер администратор
+                admin: Администратор
+                company_admin: Администратор компании

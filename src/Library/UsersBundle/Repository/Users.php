@@ -23,11 +23,6 @@ use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
 class Users extends EntityRepository implements UserLoaderInterface
 {
 
-    const ROLE__SUPER_ADMIN     = 'ROLE__SUPER_ADMIN';
-    const ROLE__ADMIN           = 'ROLE__ADMIN';
-    const ROLE__COMPANY_ADMIN   = 'ROLE__COMPANY_ADMIN';
-
-
     public function loadUserByUsername($username)
     {
         return $this->createQueryBuilder('u')

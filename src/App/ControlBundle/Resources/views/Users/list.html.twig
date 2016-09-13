@@ -2,29 +2,32 @@
 
 
 {% block content %}
-    Users List
+    
+    <div class="card-inner">
 
-    <table width="100%">
-        <tr style="background-color: #AAAAAA;">
-            <th>ID</th>
-            <th>Login</th>
-            <th>FIO</th>
-            <th>Email</th>
-            <th>Roles</th>
-            <th>Enabled</th>
-        </tr>
-        {% for userItem in users %}
-            <tr>
-                <td>{{ userItem.id }}</td>
-                <td>{{ userItem.username }}</td>
-                <td>{{ userItem.firstName }} {{ userItem.lastName }}</td>
-                <td>{{ userItem.email }}</td>
-                <td>{{ userItem.getRolesList }}</td>
-                <td>{{ userItem.enabled }}</td>
+        Users List
+
+        <table width="100%">
+            <tr style="background-color: #AAAAAA;">
+                <th>ID</th>
+                <th>Login</th>
+                <th>FIO</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Enabled</th>
             </tr>
-        {% endfor %}
+            {% for userItem in users %}
+                <tr>
+                    <td>{{ userItem.id }}</td>
+                    <td>{{ userItem.username }}</td>
+                    <td>{{ userItem.firstName }} {{ userItem.lastName }}</td>
+                    <td>{{ userItem.email }}</td>
+                    <td>{{ userItem.getUserRolesList }}</td>
+                    <td>{{ userItem.enabled }}</td>
+                </tr>
+            {% endfor %}
 
-    </table>
-
+        </table>
+    </div>
 
 {% endblock %}

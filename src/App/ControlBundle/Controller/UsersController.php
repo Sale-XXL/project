@@ -14,6 +14,10 @@ namespace App\ControlBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\Request;
+
+use App\ControlBundle\Form\Type\UserEdit as UserEditForm;
+use Library\UsersBundle\Entity\Users;
 
 /**
  * App\ControlBundle\Controller\UsersController
@@ -50,9 +54,29 @@ class UsersController extends Controller
      *
      * @return array
      */
-    public function addAction()
+    public function addAction(Request $request)
     {
-        return array();
+        $user = new Users();
+        $form = $this->createForm(UserEditForm::class, $user);
+
+        $form->handleRequest($request);
+        if ( $form->isSubmitted() && $form->isValid() ) {
+
+            $password = $this->get('security.password_encoder')
+                ->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
+            $user->addRole( $user->getRole() );
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            return $this->redirectToRoute('control_users_list');
+        }
+
+        return array(
+            'form' => $form->createView(),
+        );
     }
 
 }

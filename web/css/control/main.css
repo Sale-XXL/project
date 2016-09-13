@@ -79,6 +79,10 @@ ul.mainMenu a.select {
     border-radius: 5px;
 }
 
+.form-card {
+    width: 620px;
+}
+
 a.button-logout {
     font-size: 14px;
     border-radius: 6px;

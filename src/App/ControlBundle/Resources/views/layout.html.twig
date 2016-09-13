@@ -14,7 +14,6 @@
     {% endblock %}
 
 
-
     <div class="content">
         <div>
 
@@ -23,12 +22,11 @@
                 {{ render(controller('AppControlBundle:Menu:left', {'nameController': app.request.get('_controller')})) }}
 
             </div>
-            <div class="content-card card-inner">
+            <div class="content-card">
                 {% block content %}{% endblock %}
             </div>
 
         </div>
-
     </div>
 
 {% endblock %}

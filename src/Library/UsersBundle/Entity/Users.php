@@ -13,7 +13,9 @@ namespace Library\UsersBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Library\UsersBundle\Entity\Users
@@ -26,9 +28,16 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Entity(repositoryClass="Library\UsersBundle\Repository\Users")
  * @ORM\HasLifecycleCallbacks
  *
+ * @UniqueEntity("username")
+ * @UniqueEntity("email")
+ *
  */
 class Users implements UserInterface
 {
+
+    const ROLE__SUPER_ADMIN     = 'ROLE__SUPER_ADMIN';
+    const ROLE__ADMIN           = 'ROLE__ADMIN';
+    const ROLE__COMPANY_ADMIN   = 'ROLE__COMPANY_ADMIN';
 
     /**
      * @var int
@@ -42,16 +51,34 @@ class Users implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=32, unique=true)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 4, max = 30)
+     * @Assert\Regex(
+     *     pattern="/^[а-яёa-z0-9-_]+$/ui",
+     *     message="property.invalid_symbol.letters_digits_dash_underscore"
+     * )
      */
     protected $username;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Email(checkMX = true)
      */
     protected $email;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 4, max = 20)
+     */
+    private $plainPassword;
 
     /**
      * @var string
@@ -75,6 +102,11 @@ class Users implements UserInterface
     protected $roles;
 
     /**
+     * @var string
+     */
+    protected $role;
+
+    /**
      * @var bool
      *
      * @ORM\Column(type="boolean")
@@ -84,14 +116,28 @@ class Users implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(type="string", name="first_name", length=64)
+     * @ORM\Column(type="string", name="first_name", length=32)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 2, max = 30)
+     * @Assert\Regex(
+     *     pattern="/^[а-яёa-z-]+$/ui",
+     *     message="property.invalid_symbol.letters_dash"
+     * )
      */
     protected $firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string", name="last_name", length=64)
+     * @ORM\Column(type="string", name="last_name", length=32, nullable=true)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 2, max = 30)
+     * @Assert\Regex(
+     *     pattern="/^[а-яёa-z-]+$/ui",
+     *     message="property.invalid_symbol.letters_dash"
+     * )
      */
     protected $lastName;
 
@@ -181,6 +227,22 @@ class Users implements UserInterface
     /**
      * @return string
      */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
+
+    /**
+     * @return string
+     */
     public function getPassword()
     {
         return $this->password;
@@ -230,7 +292,7 @@ class Users implements UserInterface
     /**
      * @return null|string
      */
-    public function getRolesList()
+    public function getUserRolesList()
     {
         $list = null;
         if ( $this->getRoles() ) {
@@ -248,6 +310,37 @@ class Users implements UserInterface
     {
         $this->roles = serialize($roles);
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param string $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
+    /**
+     * @param string $preset
+     * @return array
+     */
+    public static function getAllRolesListNames($preset = '')
+    {
+        $list = array(
+            $preset . 'super_admin' => self::ROLE__SUPER_ADMIN,
+            $preset . 'admin' => self::ROLE__ADMIN,
+            $preset . 'company_admin' => self::ROLE__COMPANY_ADMIN,
+        );
+
+        return $list;
     }
 
     /**
@@ -379,6 +472,11 @@ class Users implements UserInterface
     public function eraseCredentials()
     {
 
+    }
+
+    public function getName()
+    {
+        return 'role';
     }
 
 }
